@@ -1,0 +1,492 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Bebas Neue', cursive;
+  max-width: 100%;
+}
+
+body {
+  display: -ms-grid;
+  display: grid;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  stroke-dasharray: 250% 50%;
+  stroke-dashoffset: 10%;
+  stroke-linecap: round;
+  -webkit-transition: stroke-dashoffset 0.7s ease-in-out;
+  transition: stroke-dashoffset 0.7s ease-in-out;
+}
+
+svg:hover {
+  stroke-dashoffset: 160%;
+}
+
+svg rect {
+  stroke: #F4D047;
+  width: inherit;
+  height: inherit;
+  fill: transparent;
+  stroke-width: 0.275em;
+}
+
+header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: minmax(4em, auto);
+      grid-template-rows: minmax(4em, auto);
+}
+
+header .topBar {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .4em 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  background: #0A0403;
+}
+
+header .topBar .logo {
+  width: 7em;
+  cursor: pointer;
+}
+
+header .topBar .btns {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+header .topBar .btns button {
+  position: relative;
+  color: #1A252C !important;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: 'Baloo Da', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 50em;
+  vertical-align: middle;
+  margin: 0 0.125rem;
+  border: 0 none;
+  letter-spacing: -0.075em;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  color: var(--pri-txt);
+  -webkit-transition: background .5s ease-in-out;
+  transition: background .5s ease-in-out;
+  background: -webkit-gradient(linear, left bottom, left top, from(#d3812e), to(#e6b33e));
+  background: linear-gradient(0deg, #d3812e 0%, #e6b33e 100%);
+}
+
+@media only screen and (max-width: 603px) {
+  header .topBar .btns button:nth-of-type(odd) {
+    display: none;
+  }
+}
+
+header .topBar .btns button:nth-of-type(even) {
+  color: #fff !important;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: 'Baloo Da', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 50em;
+  vertical-align: middle;
+  margin: 0 0.125rem;
+  border: 0 none;
+  letter-spacing: -0.075em;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+}
+
+header .topBar .btns .logBtn rect {
+  stroke: #494949;
+  width: inherit;
+  height: inherit;
+  fill: transparent;
+  stroke-width: 0.275em;
+}
+
+header nav {
+  padding: 0.8em;
+  color: #fff;
+  background: #010D14;
+}
+
+header nav ul {
+  list-style-type: none;
+}
+
+header nav ul li {
+  display: inline-block;
+  padding: 0 1em;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  header nav ul li {
+    padding: 0 .5em;
+  }
+}
+
+.banner {
+  position: relative;
+  padding: 2em 0 5em 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  color: #fff;
+  background: url("/assets/banner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.banner .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.banner .overlay img {
+  width: 30%;
+}
+
+.banner .overlay .icons-l {
+  position: absolute;
+  bottom: 0;
+}
+
+.banner .overlay .icons-r {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.banner .offerWrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (auto)[5];
+      grid-template-rows: repeat(5, auto);
+  grid-row-gap: 0.5em;
+  justify-items: center;
+  z-index: 2;
+}
+
+.banner .offerWrapper .offer {
+  font-size: 3em;
+  padding: 1em 1.5em;
+  text-align: center;
+  border: solid 4px #fff;
+}
+
+@media only screen and (max-width: 500px) {
+  .banner .offerWrapper .offer {
+    font-size: 2em;
+    padding: .5em .75em;
+    margin-bottom: 1em;
+  }
+}
+
+.banner .offerWrapper .offerBtn {
+  position: relative;
+  color: #1A252C !important;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: 'Baloo Da', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 50em;
+  vertical-align: middle;
+  margin: 0 0.125rem;
+  border: 0 none;
+  letter-spacing: -0.075em;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  color: var(--pri-txt);
+  -webkit-transition: background .5s ease-in-out;
+  transition: background .5s ease-in-out;
+  background: -webkit-gradient(linear, left bottom, left top, from(#d3812e), to(#e6b33e));
+  background: linear-gradient(0deg, #d3812e 0%, #e6b33e 100%);
+  font-size: 1.5em;
+  padding: 0.5em 2em;
+}
+
+.banner .offerWrapper .badges {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  padding-top: 1em;
+  grid-gap: 1em;
+}
+
+@media only screen and (max-width: 1181px) {
+  .banner .offerWrapper .badges {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 984px) {
+  .banner .offerWrapper .badges {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  .banner .offerWrapper .badges {
+    -ms-grid-columns: (20em)[4];
+        grid-template-columns: repeat(4, 20em);
+  }
+}
+
+.banner .offerWrapper .badges .badge {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.banner .offerWrapper .badges .badge i {
+  padding: 0.4em 0.8em;
+  font-size: 5em;
+}
+
+.banner .offerWrapper .badges .badge .txtWrap {
+  padding: 0.5em;
+  background: #FF141A;
+}
+
+.banner .offerWrapper .badges .badge .txtWrap .badgeHead {
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+}
+
+.banner .offerWrapper .badges .badge .txtWrap .badgeSub {
+  font-weight: 600;
+}
+
+.games {
+  position: relative;
+  margin-top: 5em;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  justify-items: center;
+}
+
+.games .arrow {
+  position: absolute;
+  top: 4em;
+  margin: 0 3em;
+  padding: .5em;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1181px) {
+  .games .arrow {
+    margin: 0.2em;
+  }
+}
+
+.games .left {
+  left: 0;
+}
+
+.games .right {
+  right: 0;
+}
+
+.games ::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+  border: 60px solid #fff;
+}
+
+.games ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.games ::-webkit-scrollbar-thumb {
+  border: solid 3.5px #fff;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.games .gameHeader {
+  -ms-grid-column-align: start;
+      justify-self: start;
+  margin-left: 10vw;
+  margin-bottom: 1em;
+  font-weight: lighter;
+}
+
+.games .gameCarousel {
+  width: 80vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (149px)[18];
+      grid-template-columns: repeat(18, 149px);
+  -ms-grid-rows: (149px)[2];
+      grid-template-rows: repeat(2, 149px);
+  grid-auto-flow: column;
+  grid-gap: .2em;
+  overflow-x: auto;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+@media only screen and (max-width: 1181px) {
+  .games .gameCarousel {
+    width: 90vw;
+  }
+}
+
+.games .gameCarousel .game img {
+  width: 100%;
+  height: 100%;
+}
+
+.games .gameCarousel .xlIcon {
+  grid-column: auto / span 2;
+  grid-row: auto / span 2;
+}
+
+.games .gameCarousel .icon {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.games .gameCarousel .wideIcon {
+  grid-column: auto / span 2;
+  grid-row: auto;
+}
+
+.games .gameCarousel .tallIcon {
+  grid-column: auto;
+  grid-row: auto / span 2;
+}
+
+.games .badges-2 {
+  width: 80vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
+  margin-top: 2em;
+}
+
+@media only screen and (min-width: 985px) {
+  .games .badges-2 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  .games .badges-2 {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-rows: (1fr)[4];
+        grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+.games .badges-2 .badge {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5em 0;
+}
+
+.games .badges-2 .badge i {
+  font-size: 3em;
+  padding-right: 1em;
+}
+
+.games .badges-2 .badge .txtWrap .badgeHead {
+  font-size: 2em;
+}
+
+.games .badges-2 .badge .txtWrap .badgeSub {
+  font-weight: 600;
+}
+
+footer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: (0.5fr)[2];
+      grid-template-rows: repeat(2, 0.5fr);
+  justify-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  grid-row-gap: 6em;
+  text-align: center;
+  margin-top: 5em;
+  padding-top: 1em;
+  color: #fff;
+  background: #010D14;
+}
+
+footer .copyright {
+  width: 80vw;
+  padding: 1em;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 1181px) {
+  footer .copyright {
+    width: 90vw;
+  }
+}
+
+.scrolling {
+  scroll-behavior: smooth;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,377 @@
+@mixin mqMax($size){
+    @media only screen and (max-width: $size){
+        @content
+    }
+};
+@mixin mqMin($size){
+    @media only screen and (min-width: $size){
+        @content
+    }
+};
+
+@mixin btn($col){
+    color: $col!important;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background: transparent;
+    transition: all 0.3s ease;
+    font-family: 'Baloo Da', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 50em;
+    vertical-align: middle;
+    margin: 0 0.125rem;
+    border: 0 none;
+    letter-spacing: -0.075em;
+    padding: 0.5em 1.5em;
+    cursor: pointer;
+}
+
+@mixin btnBorder($col1,$col2){
+    color: var(--pri-txt);
+    transition: background .5s ease-in-out;
+    background: linear-gradient(0deg
+, $col1 0%, $col2 100%);
+}
+
+@mixin rect($col){
+    stroke: $col;
+    width: inherit;
+    height: inherit;
+    fill: transparent;
+    stroke-width: 0.275em;
+}
+
+$tbCol: #0A0403;
+$navCol: #010D14;
+$col1: #fff;
+$primaryBtn: #1A252C;
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family: 'Bebas Neue', cursive;
+    max-width: 100%;
+}
+body{
+    display:grid;
+}
+
+svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    stroke-dasharray: 250% 50%;
+    stroke-dashoffset: 10%;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.7s ease-in-out;
+    &:hover{
+        stroke-dashoffset: 160%;
+    }
+    rect{
+        @include rect(#F4D047);
+    }
+}
+
+header {
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows: minmax(4em, auto);
+    
+    .topBar{
+        align-items: center;
+        padding: .4em 0;
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        background: $tbCol;
+        .logo{
+            width: 7em;
+            cursor: pointer;
+        }
+        .btns{
+            justify-self: end;
+            button{
+                position:relative;
+                @include btn($primaryBtn);
+                @include btnBorder(#d3812e,#e6b33e);
+                &:nth-of-type(odd){
+                    @include mqMax(603px){
+                        display:none;
+                    }
+                }
+                &:nth-of-type(even){
+                    @include btn($col1);
+                }               
+            }
+            .logBtn{
+                rect{
+                    @include rect(#494949);
+                }
+            } 
+        }
+    }
+    nav{
+        padding: 0.8em;
+        color: $col1;
+        background: $navCol;
+        ul{
+            list-style-type: none;
+            li{
+                display: inline-block;
+                padding: 0 1em;
+                cursor: pointer;
+                @include mqMax(500px){
+                    padding: 0 .5em;
+                }
+            }
+        }
+    }
+}
+
+.banner{
+    //height: 80vh;
+    position: relative;
+    padding: 2em 0 5em 0;
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    color: $col1;
+    background: url('/assets/banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    .overlay{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        background: rgba(0,0,0,0.8);
+
+        img{
+            width: 30%;
+        }
+
+        .icons-l{
+            position: absolute;
+            bottom:0;
+        }
+        .icons-r{
+            position: absolute;
+            right:0;
+            bottom:0;
+        }
+    }
+
+    .offerWrapper{
+        display: grid;
+        grid-template-rows: repeat(5, auto);
+        grid-row-gap: 0.5em;
+        justify-items: center;
+        z-index: 2;
+
+        .offer{
+            font-size: 3em;
+            padding: 1em 1.5em;
+            text-align: center;
+            border: solid 4px $col1;
+            @include mqMax(500px){
+                font-size: 2em;
+                padding: .5em .75em;
+                margin-bottom: 1em;
+            }
+        }
+        .offerBtn{
+            position:relative;
+            @include btn($primaryBtn);
+            @include btnBorder(#d3812e,#e6b33e);
+            font-size: 1.5em;
+            padding: 0.5em 2em;
+        }
+        .badges{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding-top: 1em;
+            grid-gap: 1em;
+
+            @include mqMax(1181px){
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include mqMax(984px){
+                display: none;
+            }
+            @include mqMin(2500px){
+                grid-template-columns: repeat(4, 20em);
+            }
+
+            .badge{
+               text-align: center;
+               background: rgba(255,255,255,0.1);
+               i {
+                   padding: 0.4em 0.8em;
+                   font-size: 5em;
+               }
+               .txtWrap{
+                   padding: 0.5em;
+                   background: #FF141A;
+                   .badgeHead{
+                       font-size: 1.5em;
+                       margin-bottom: 0.2em;
+                   }
+                   .badgeSub{
+                       font-weight: 600;
+                   }
+               }
+            }
+        }
+    }
+}
+
+.games{
+    position: relative;
+    margin-top: 5em;
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+
+    .arrow{
+        position: absolute;
+        top: 4em;
+        margin: 0 3em;
+        padding: .5em;
+        font-size: 2.5em;
+        cursor: pointer;
+        @include mqMax(1181px){
+            margin: 0.2em;
+        }
+    }
+    .left{
+        left: 0;
+    }
+    .right{
+        right: 0;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 10px;
+        border: 60px solid #fff;
+    }
+    ::-webkit-scrollbar-track{
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb{
+        border: solid 3.5px #fff;
+        background: rgba(0,0,0,0.8);
+    }
+
+    .gameHeader{
+        justify-self:start;
+        margin-left: 10vw;
+        margin-bottom: 1em;
+        font-weight: lighter;
+    }
+    .gameCarousel{
+        width: 80vw;
+        display: grid;
+        grid-template-columns: repeat(18, 149px);
+        grid-template-rows: repeat(2, 149px);
+        grid-auto-flow: column;
+        grid-gap: .2em;
+        overflow-x: auto;
+        cursor: grab;
+        @include mqMax(1181px){
+            width: 90vw;
+        }
+        .game{
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .xlIcon{
+            grid-column: auto / span 2;
+            grid-row: auto / span 2;
+        }
+        .icon {
+            grid-column: auto;
+            grid-row: auto;
+        }
+        .wideIcon {
+            grid-column: auto / span 2;
+            grid-row: auto;
+        }
+        .tallIcon {
+            grid-column: auto;
+            grid-row: auto / span 2;
+        }
+    }
+    .badges-2{
+        @include mqMin(985px){
+            display:none;
+        }
+        width: 80vw;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 1em;
+        margin-top: 2em;
+        @include mqMax(590px){
+            grid-template-columns: repeat(1,1fr);
+            grid-template-rows: repeat(4, 1fr);
+        }
+
+        .badge{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5em 0;
+            i{
+                font-size: 3em;
+                padding-right: 1em;
+            }
+            .txtWrap{
+                .badgeHead{
+                    font-size: 2em;
+                }
+                .badgeSub{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+footer{
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 0.5fr);
+    justify-items: center;
+    align-content: center;
+    grid-row-gap: 6em;
+    text-align: center;
+    margin-top: 5em;
+    padding-top: 1em;
+    color: $col1;
+    background: $navCol;
+    .copyright{
+        width: 80vw;
+        padding: 1em;
+        background: rgba(0,0,0,0.2);
+        @include mqMax(1181px){
+            width: 90vw;
+        }
+    }
+}
+
+.scrolling{
+    scroll-behavior: smooth;
+}
