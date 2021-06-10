@@ -150,6 +150,9 @@ header nav {
   padding: 0.8em;
   color: #fff;
   background: #010D14;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
 }
 
 header nav ul {

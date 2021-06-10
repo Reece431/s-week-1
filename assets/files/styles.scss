@@ -134,6 +134,8 @@ header {
         padding: 0.8em;
         color: $col1;
         background: $navCol;
+        display: grid;
+        justify-items: center;
         ul{
             list-style-type: none;
             li{
