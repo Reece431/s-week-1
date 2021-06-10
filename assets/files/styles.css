@@ -13,12 +13,8 @@ body {
 }
 
 a {
-  color: #e6b33e;
   text-decoration: none;
-}
-
-a:hover {
-  color: #F4D047;
+  color: inherit;
 }
 
 svg {
@@ -45,6 +41,15 @@ svg rect {
   height: inherit;
   fill: transparent;
   stroke-width: 0.275em;
+}
+
+.link {
+  color: #e6b33e;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #F4D047;
 }
 
 header {

@@ -58,13 +58,9 @@ $primaryBtn: #1A252C;
 body{
     display:grid;
 }
-
 a{
-    color:#e6b33e;
-    text-decoration:none;
-    &:hover{
-        color:#F4D047;
-    }
+    text-decoration: none;
+    color: inherit;
 }
 
 svg{
@@ -83,6 +79,14 @@ svg{
     }
     rect{
         @include rect(#F4D047);
+    }
+}
+
+.link{
+    color:#e6b33e;
+    text-decoration:none;
+    &:hover{
+        color:#F4D047;
     }
 }
 
