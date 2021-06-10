@@ -59,6 +59,14 @@ body{
     display:grid;
 }
 
+a{
+    color:#e6b33e;
+    text-decoration:none;
+    &:hover{
+        color:#F4D047;
+    }
+}
+
 svg{
     position: absolute;
     top: 0;
@@ -82,6 +90,7 @@ header {
     display:grid;
     grid-template-columns: 100%;
     grid-template-rows: minmax(4em, auto);
+    z-index: 100;
     
     .topBar{
         align-items: center;
@@ -96,12 +105,13 @@ header {
         }
         .btns{
             justify-self: end;
+            padding-right: 2em;
             button{
                 position:relative;
                 @include btn($primaryBtn);
                 @include btnBorder(#d3812e,#e6b33e);
                 &:nth-of-type(odd){
-                    @include mqMax(603px){
+                    @include mqMax(716px){
                         display:none;
                     }
                 }
@@ -144,7 +154,7 @@ header {
     align-items: center;
     justify-items: center;
     color: $col1;
-    background: url('/k-week-1/assets/banner.png');
+    background: url('../banner.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -159,6 +169,9 @@ header {
 
         img{
             width: 30%;
+            @include mqMin(2500px){
+                max-width: 20%;
+            }
         }
 
         .icons-l{
@@ -181,7 +194,7 @@ header {
 
         .offer{
             font-size: 3em;
-            padding: 1em 1.5em;
+            padding: .5em 1.5em;
             text-align: center;
             border: solid 4px $col1;
             @include mqMax(500px){
@@ -189,6 +202,20 @@ header {
                 padding: .5em .75em;
                 margin-bottom: 1em;
             }
+        }
+        .offerSub{
+            width: 10em;
+            img{
+                width: 100%;
+            }
+
+        }
+        .offerTerms{
+            text-align: center;
+            font-size: .6em;
+            font-weight: normal;
+            width: 60%;
+            margin: .4em 0;
         }
         .offerBtn{
             position:relative;
@@ -228,7 +255,8 @@ header {
                        margin-bottom: 0.2em;
                    }
                    .badgeSub{
-                       font-weight: 600;
+                        font-size: .8em;
+                        //font-weight: 600;
                    }
                }
             }
@@ -333,7 +361,10 @@ header {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 1.5em 0;
+            padding: 1em 0;
+            @include mqMax(590px){
+                justify-content: end;
+            }
             i{
                 font-size: 3em;
                 padding-right: 1em;

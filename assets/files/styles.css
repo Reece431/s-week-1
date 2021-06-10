@@ -12,6 +12,15 @@ body {
   display: grid;
 }
 
+a {
+  color: #e6b33e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #F4D047;
+}
+
 svg {
   position: absolute;
   top: 0;
@@ -45,6 +54,7 @@ header {
       grid-template-columns: 100%;
   -ms-grid-rows: minmax(4em, auto);
       grid-template-rows: minmax(4em, auto);
+  z-index: 100;
 }
 
 header .topBar {
@@ -68,6 +78,7 @@ header .topBar .logo {
 header .topBar .btns {
   -ms-grid-column-align: end;
       justify-self: end;
+  padding-right: 2em;
 }
 
 header .topBar .btns button {
@@ -96,7 +107,7 @@ header .topBar .btns button {
   background: linear-gradient(0deg, #d3812e 0%, #e6b33e 100%);
 }
 
-@media only screen and (max-width: 603px) {
+@media only screen and (max-width: 716px) {
   header .topBar .btns button:nth-of-type(odd) {
     display: none;
   }
@@ -167,7 +178,7 @@ header nav ul li {
           align-items: center;
   justify-items: center;
   color: #fff;
-  background: url("/k-week-1/assets/banner.png");
+  background: url("../banner.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -184,6 +195,12 @@ header nav ul li {
 
 .banner .overlay img {
   width: 30%;
+}
+
+@media only screen and (min-width: 2500px) {
+  .banner .overlay img {
+    max-width: 20%;
+  }
 }
 
 .banner .overlay .icons-l {
@@ -209,7 +226,7 @@ header nav ul li {
 
 .banner .offerWrapper .offer {
   font-size: 3em;
-  padding: 1em 1.5em;
+  padding: .5em 1.5em;
   text-align: center;
   border: solid 4px #fff;
 }
@@ -220,6 +237,22 @@ header nav ul li {
     padding: .5em .75em;
     margin-bottom: 1em;
   }
+}
+
+.banner .offerWrapper .offerSub {
+  width: 10em;
+}
+
+.banner .offerWrapper .offerSub img {
+  width: 100%;
+}
+
+.banner .offerWrapper .offerTerms {
+  text-align: center;
+  font-size: .6em;
+  font-weight: normal;
+  width: 60%;
+  margin: .4em 0;
 }
 
 .banner .offerWrapper .offerBtn {
@@ -300,7 +333,7 @@ header nav ul li {
 }
 
 .banner .offerWrapper .badges .badge .txtWrap .badgeSub {
-  font-weight: 600;
+  font-size: .8em;
 }
 
 .games {
@@ -440,7 +473,15 @@ header nav ul li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1.5em 0;
+  padding: 1em 0;
+}
+
+@media only screen and (max-width: 590px) {
+  .games .badges-2 .badge {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
 }
 
 .games .badges-2 .badge i {
