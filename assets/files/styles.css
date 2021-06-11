@@ -490,6 +490,9 @@ header nav ul li {
         -ms-flex-pack: end;
             justify-content: end;
   }
+  .games .badges-2 .badge .fa-walking {
+    font-size: 3.9em;
+  }
 }
 
 .games .badges-2 .badge i {

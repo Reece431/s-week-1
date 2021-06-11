@@ -370,6 +370,9 @@ header {
             padding: 1em 0;
             @include mqMax(590px){
                 justify-content: end;
+                .fa-walking{
+                    font-size: 3.9em;
+                }
             }
             i{
                 font-size: 3em;
