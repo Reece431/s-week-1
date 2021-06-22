@@ -58,9 +58,11 @@ $primaryBtn: #1A252C;
 body{
     display:grid;
 }
+
 a{
     text-decoration: none;
     color: inherit;
+    font-family: inherit;
 }
 
 svg{
@@ -142,7 +144,6 @@ header {
             li{
                 display: inline-block;
                 padding: 0 1em;
-                cursor: pointer;
                 @include mqMax(500px){
                     padding: 0 .5em;
                 }

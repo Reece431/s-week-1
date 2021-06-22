@@ -17,7 +17,7 @@ slider.addEventListener('mouseup', (e) => {
     isDown = false;
     pos = e.pageX - slider.offsetLeft;
     if(pos == startX){
-      window.location.href="https://www.slotzo.com/#";
+      window.location.href="https://www.slotzo.com/?PAR=178ga64cidpidaffid55&NeoDL=registration";
     }
 })
 slider.addEventListener('mouseleave', () =>{
